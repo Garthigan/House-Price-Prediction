@@ -1,6 +1,10 @@
-from flask import Flask,request ,jsonify
+from flask import Flask,request ,jsonify, render_template
 import util
-app = Flask(__name__, static_url_path='', static_folder='static')
+app = Flask(__name__, static_url_path='', static_folder='static', template_folder='static')
+
+@app.route("/")
+def index():
+    return render_template('index.html')
 
 @app.route('/get_location_names',methods=['GET'])
 def get_location_names():
