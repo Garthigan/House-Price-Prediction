@@ -1,6 +1,6 @@
 from flask import Flask,request ,jsonify
 import util
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/get_location_names',methods=['GET'])
 def get_location_names():
@@ -40,4 +40,4 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server for Home Price Prediction")
     util.load_saved_artifacts()
-    app.run()
+    app.run(debug=True)
